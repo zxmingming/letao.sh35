@@ -1,0 +1,15 @@
+/* -----------------------------------------登录页面的样式 */
+/* 登录页面的背景 */
+.body-bg {
+    background-color: #222D32;
+}
+.panel-title {
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+/* 自定义的类名 */
+.mt_150 {
+    margin-top: 150px;
+}
