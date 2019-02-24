@@ -114,6 +114,8 @@ ul {
     height: 2000px;
     padding-left: 180px;
     padding-top: 50px;
+    /* ps */
+    /* background-color: pink; */
     transition: all 1s;
 }
 .lt_main.hidemenu {
@@ -128,6 +130,8 @@ ul {
     background-color: #3C8DBC;
     padding-left: 180px;
     transition: all 1s;
+    /* 增强层级, 以免下面的数据可视化(数据图表化)lt_content覆盖lt_topbar */
+    z-index: 998;
 }
 .lt_topbar.hidemenu {
     padding-left: 0px;
@@ -142,4 +146,13 @@ ul {
 }
 .lt_main .breadcrumb a {
     color: #337AB7;
+}
+
+/* 数据可视化(数据图表化)的样式 */
+.lt_main .echarts_left,
+.lt_main .echarts_right {
+    width: 48%;
+    height: 400px;
+    /* ps */
+    background-color: skyblue;
 }
