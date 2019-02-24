@@ -37,8 +37,9 @@
                 <li>
                     <!-- 自己给a加一个class="category"类 -->
                     <a class="category" href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-                    <div class="child">
-                        <a href="first.html">一级分类</a>
+                    <!-- 添加行内样式, 点击一级分类, 一二级分类展示出来 -->
+                    <div class="child" style="display: block;">
+                        <a class="current" href="first.html">一级分类</a>
                         <a href="second.html">二级分类</a>
                     </div>
                 </li>
@@ -105,8 +106,6 @@
     <script src="./js/common.js"></script>
     <!-- 引入登录状态拦截(自己写的) -->
     <script src="./js/isLogin.js"></script>
-    <!-- 引入自己写的js -->
-    <script src="./js/index.js"></script>
 </body>
 
 </html>
