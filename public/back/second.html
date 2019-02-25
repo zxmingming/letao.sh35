@@ -61,13 +61,97 @@
             <!-- 自己添加一个类class="mt_20", 让路径导航的盒子margin-top: 20px; -->
             <ol class="breadcrumb mt_20">
                 <li><a href="index.html">管理系统</a></li>
-                <li class="active">首页</li>
+                <li class="active">分类管理</li>
+                <li class="active">二级分类</li>
             </ol>
+
+            <div class="lt_content">
+                <!-- 添加id="addBtn" -->
+                <button class="btn btn-default" id="addBtn">添加分类</button>
+
+                <!-- 表格 -->
+                <table class="table table-bordered table-hover mt_20">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>一级分类名称</th>
+                            <th>二级分类名称</th>
+                            <th>二级分类LOGO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 挖个坑 -->
+                        <!-- 给 img 设置行内样式 -->
+
+                    </tbody>
+                </table>
+
+                <!-- 准备分页容器 -->
+                <!-- 准备一个父元素, 再添加一个类class="pull-right" -->
+                <div class="pull-right">
+                    <ul id="paginator"></ul>
+                </div>
+            </div>
         </div>
     </div>
 
 
-    <!-- 模态框 -->
+    <!-- 准备一个添加模态框 -->
+    <div class="modal fade" tabindex="-1" id="addModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <!-- 自己添加的id="form" -->
+                <form id="form">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="modal-title">添加分类</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <!-- 自己添加id="dropdownText" -->
+                                    <span id="dropdownText">请选择一级分类</span>
+                                    <!-- 小箭头 -->
+                                    <span class="caret"></span> 
+                                </button>
+                                <!-- 下拉菜单 -->
+                                <ul class="dropdown-menu">
+                                    <!-- 挖个坑 -->
+                                    
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- 添加name属性 -->
+                            <input type="text" name="categoryName" class="form-control" placeholder="请输入二级分类">
+                        </div>
+
+                        <div class="form-group">
+                            <!-- label中的for的属性值与input的id是一一对应的 -->
+                            <label class="btn btn-default" for="fileupload">选择图片</label>
+                            <!-- 设置行内样式 -->
+                            <input type="file" id="fileupload" style="display: none;">
+                        </div>
+
+                        <div class="form-group">
+                           <img style="height: 100px;" src="./images/none.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <!-- 把type="button"改为type="submit" -->
+                        <button type="submit" class="btn btn-primary">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 登出模态框 -->
     <!-- 调整模态框大小, 
          1. modal-lg  => 大模态框
          2. modal-sm  => 小模态框
@@ -96,16 +180,50 @@
     </div>
 
 
+    <!-- 使用模板引擎的步骤:
+        1. 引包
+        2. 创建模板
+        3. 准备数据
+        4. 完成渲染
+    -->
+    <!-- 发送ajax, 使用模板引擎  => 动态渲染列表 -->
+    <script type="text/html" id="secondTpl">
+        {{ each rows v i }}
+            <tr>			
+                <td>{{ i + 1 + (page - 1) * size}}</td>
+                <td>{{ v.categoryName }}</td>
+                <td>{{ v.brandName }}</td>
+                <td>
+                    <img style="height: 50px" src="{{ v.brandLogo }}" alt="">
+                </td>
+            </tr>
+        {{ /each }}
+    </script>
+
+    <!-- 发送ajax, 使用模板引擎 => 动态渲染下拉菜单 -->
+    <script type="text/html" id="dropdownTpl">
+        {{ each rows v i }}
+            <li><a href="#">{{ v.categoryName }}</a></li>
+        {{ /each }}
+    </script>
+
+
 
 
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入模板引擎文件(使用模板引擎 => 实现动态渲染列表) -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 引入分页插件bootstrap-paginator -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <!-- 引入公共进度条功能(自己写的), 公用的功能 -->
     <script src="./js/common.js"></script>
     <!-- 引入登录状态拦截(自己写的) -->
     <script src="./js/isLogin.js"></script>
+    <!-- 引入列表渲染和分页(自己写的) -->
+    <script src="./js/second.js"></script>
 </body>
 
 </html>
