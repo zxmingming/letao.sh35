@@ -1,0 +1,51 @@
+/* ---------------------------------------分类页样式 */
+/* ---------------------------左边的样式 */
+.lt_category_left {
+    float: left;
+    width: 90px;
+    height: 100%;
+    /* ps */
+    /* background-color: pink; */
+    /* 由于mui内部基于定位实现的区域滚动, 所以外层 .lt_category_left 必须加定位*/
+    position: relative;
+}
+.lt_category_left li a {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #333;
+    background-color: #E3E4E5;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.lt_category_left li a.current {
+    background-color: #fff;
+    border-right: none;
+}
+
+/* ----------------------------右边的样式 */
+.lt_category_right {
+    overflow: hidden;
+    height: 100%;
+    /* ps */
+    /* background-color: skyblue; */
+    /* 由于mui内部基于定位实现的区域滚动, 所以外层 .lt_category_right 必须加定位*/
+    position: relative;
+}
+.lt_category_right li {
+    float: left;
+    width: 33.3%;
+}
+.lt_category_right li a {
+    display: block;
+}
+.lt_category_right li a img {
+    width: 70px;
+    height: 50px;
+    margin: 0 auto;
+}
+.lt_category_right li a p {
+    text-align: center;
+}
