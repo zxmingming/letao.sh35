@@ -108,3 +108,61 @@ img {
     /* 由于mui内部基于定位实现的区域滚动, 所以外层 .lt_main 必须加定位*/
     position: relative;
 }
+
+
+
+/* ========复用的搜索框======== */
+/*---------------------------搜索框的样式 */
+.lt_search {
+    padding: 10px;
+    position: relative;
+}
+.lt_search .search_input {
+    height: 34px;
+    font-size: 12px;
+    margin: 0;
+    border: 1px solid #007AFF;
+    border-radius: 5px;
+}
+.lt_search .search_btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* ========复用的商品列表样式======== */
+/* ---------------------------商品模块的样式 */
+.lt_product {
+    padding: 10px;
+}
+.lt_product li {
+    float: left;
+    width: 48%;
+    margin-bottom: 20px;
+}
+.lt_product li:nth-child(2n+1) {
+    margin-right: 4%;
+}
+.lt_product li a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+.lt_product li .oldPrice {
+    text-decoration: line-through;
+}
+.lt_product li .price {
+    color: #FF5D5D;
+}
+.lt_product li img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.lt_product .mui-ellipsis-2 {
+    height: 40px;
+}
