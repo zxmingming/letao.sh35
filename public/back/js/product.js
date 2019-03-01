@@ -179,7 +179,7 @@ $(function() {
                     // {n} 表示 出现 n次
                     // {n,m} 表示出现 n ~ m次
                     regexp: {
-                        regexp: /^[1-9]\d$/,
+                        regexp: /^[1-9]\d*$/,
                         message: '商品库存必须是非零开头的数字'
                     }
                 }
